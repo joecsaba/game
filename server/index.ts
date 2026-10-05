@@ -85,6 +85,6 @@ wss.on("connection", socket => {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const clientPath = path.resolve(__dirname, "../client");
 app.use(express.static(clientPath));
-app.get("*", (_req, res) => res.sendFile(path.join(clientPath, "index.html")));
+app.get(/.*/, (_req, res) => res.sendFile(path.join(clientPath, "index.html")));
 
 server.listen(3000, () => console.log("Fast Guess server listening on http://localhost:3000"));
