@@ -5,7 +5,7 @@ import "./styles.css";
 type Player = { id: string; name: string };
 type GameState = { gameId: string; hostId: string; players: Player[] };
 const wsProtocol = location.protocol === "https:" ? "wss" : "ws";
-const ws = new WebSocket(`${wsProtocol}://${location.host}`);
+const ws = new WebSocket(`${wsProtocol}://${location.host}/ws`);
 
 function App() {
   const initialGame = new URLSearchParams(location.search).get("game")?.toUpperCase() ?? "";
